@@ -34,16 +34,6 @@ class CatFactApiService
         }
     }
     
-
-    func fetchCatImageURL() -> Result<URL,CatFactError>
-    {
-        guard let url = URL(string: CatFactAPIs.catImageURL+"\(UUID().uuidString)") else {
-            return .failure(.invalidURL)
-        }
-        return .success(url)
-    }
-    
-    
     func fetchCatImage() async throws -> UIImage {
             guard let url = URL(string: CatFactAPIs.catImageURL + UUID().uuidString) else {
                 throw CatFactError.invalidURL

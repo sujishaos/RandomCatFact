@@ -10,16 +10,18 @@ import SwiftUI
 struct ContentView: View
 {
     @StateObject private var viewModel = CatFactViewModel(apiService: CatFactApiService())
-
-    let screenWidth = UIScreen.main.bounds.width
     
     var body: some View
     {
-        VStack(spacing: 20)
-        {
-            Spacer().frame(height: 20)
-            if let uiImage = viewModel.catImage
+        ZStack {
+            
+            Color.orange.ignoresSafeArea()
+            
+            VStack(spacing: 20)
             {
+                Spacer().frame(height: 20)
+                if let uiImage = viewModel.catImage
+                {
                     
                     Image(uiImage: uiImage)
                         .resizable()
@@ -77,6 +79,7 @@ struct ContentView: View
                 }
             }
         }
+    }
 }
 
 
